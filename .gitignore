@@ -2,6 +2,6 @@
 
 .settings/*
 /bin/
-CustomizedReport
+CustomizedReport/*
 !CustomizedReport/gitkeep.gitignore 
 
