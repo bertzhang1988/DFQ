@@ -1,1 +1,8 @@
 /target/
+
+.settings/*
+bin
+src
+CustomizedReport
+!CustomizedReport/gitkeep.gitignore 
+
