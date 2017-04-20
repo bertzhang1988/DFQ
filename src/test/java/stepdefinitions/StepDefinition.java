@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import cucumber.api.Scenario;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -30,7 +30,7 @@ public class StepDefinition extends base {
 	private TermsCondition TC;
 	private paymentPage p;
 	private ConfirmationPage CP;
-	private int R;
+	private String ScenarioNam;
 
 	@Given("^setup browser \"([^\"]*)\" and navigate \"([^\"]*)\"$")
 	public void setup_browser_and_navigate(String browser, String url) throws Throwable {
@@ -150,15 +150,15 @@ public class StepDefinition extends base {
 		CP = p.ConfirmPaymentMethod();
 	}
 
-	@Then("^wrap the quote id, pro number and pick up reference number to the excel report$")
-	public void wrap_the_quote_id_pro_number_and_pick_up_reference_number_to_the_excel_report(Scenario s)
-			throws Throwable {
-		Row contentRow = TestRunner.sheet.createRow(++R);
-		contentRow.createCell(0).setCellValue(s.getName());
+	@And("^wrap the quote id, pro number and pick up reference number to the excel report$")
+	public void wrap_the_quote_id_pro_number_and_pick_up_reference_number_to_the_excel_report() throws Throwable {
+		ScenarioNam = HookStep.ScenarioName;
+		Row contentRow = TestRunner.sheet.createRow(++TestRunner.R);
+		contentRow.createCell(0).setCellValue(ScenarioNam);
 		contentRow.createCell(1).setCellValue(CP.GetquoteID());
 		contentRow.createCell(2).setCellValue(CP.GetProNum());
 		contentRow.createCell(3).setCellValue(CP.GetPickupReferenceNum());
-		TestRunner.sheet.createRow(++R);
+		TestRunner.sheet.createRow(++TestRunner.R);
 
 	}
 

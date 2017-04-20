@@ -15,14 +15,14 @@ public class ConfirmationPage extends basePage {
 	}
 
 	public String GetquoteID() {
-		return driver.findElement(By.name("quoteId")).getText();
+		return driver.findElement(By.name("quoteId")).getAttribute("value");
 	}
 
 	public String GetPickupReferenceNum() {
-		return driver.findElement(By.name("pickupReferenceNumber")).getText();
+		return driver.findElement(By.name("pickupReferenceNumber")).getAttribute("value");
 	}
 
 	public String GetProNum() {
-		return driver.findElement(By.name("proNumber")).getText();
+		return driver.findElement(By.name("proNumber")).getAttribute("value");
 	}
 }

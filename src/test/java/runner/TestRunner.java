@@ -25,6 +25,7 @@ import utility.Function;
 public class TestRunner {
 	public static XSSFWorkbook workbook;
 	public static XSSFSheet sheet;
+	public static int R;
 
 	@BeforeClass
 	public static void generate_report() throws Throwable {
