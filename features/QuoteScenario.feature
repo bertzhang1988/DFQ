@@ -5,15 +5,14 @@ Feature: Test making Quote through Dimensional Freight Quote
     Given setup browser "chrome" and navigate " https://mystage.yrc.com/"
     Given Login through username"uyr348b" and password"yrcfreight2" and navigate to DFQ page
 
-
   @case1
-  Scenario Outline: M - (Ship From (Shipper)) - Bill Me Later
+  Scenario Outline: N - (Ship From (Shipper)) - Credit Card
     Then fill requester information with your location <location>
     Then select role of <role>
     Then select pick up date
     Then enter ship from location type <from location type> and enter zip <from location zip>
     Then enter ship to location type <to location type> and enter zip <to location zip>
-    Then set handling unit "Carton" and shipment size with L "20" W "23" H "12" # "2" WEIGHT "203"
+    Then set handling unit "Carton" and shipment size with L "48" W "48" H "48" # "1" WEIGHT "500"
     Then click next and kick off quote summary page
     Then select the quote and kick off shipment detail page
     Then fill the shipper information with <shipper company name> and <shipper address> and <shipper email>
@@ -26,8 +25,8 @@ Feature: Test making Quote through Dimensional Freight Quote
     And wrap the quote id, pro number and pick up reference number to the excel report
 
     Examples: 
-      | location                                               | role | from location type               | from location zip | to location type                 | to location zip | shipper company name | shipper address  | shipper email                 | consignee company name | consignee address | consignee email            | count | unit   | contact name | contact number |
-      | CALICO CORNERS at 16810 S DIXIE HWY in MIAMI, FL 33157 | TP   | Commercial with forklift or dock |             64112 | Commercial with forklift or dock |           64114 | yrc freight          | 10990 roe ave,mo | Nica.Marroquin@YRCFreight.com | sprint inc             | 6480 Sprint Pkwy  | Kamran.Syed@YRCFreight.com |     2 | Carton | Nica         |     2320909989 |
+      | location                                                | role | from location type               | from location zip | to location type                 | to location zip | shipper company name | shipper address  | shipper email | consignee company name | consignee address | consignee email            | count | unit   | contact name | contact number |
+      | TRUE VALUE at 225 S FRONT ST in CENTRAL POINT, OR 97502 | SH   | Commercial with forklift or dock |                   | Commercial with forklift or dock |           64114 | yrc freight          | 10990 roe ave,mo |               | sprint inc             | 6480 Sprint Pkwy  | Kamran.Syed@YRCFreight.com |     2 | Carton | Nica         |     2320909989 |
 
   @case2
   Scenario Outline: M - (Ship To (Consignee)) - Credit Card
@@ -50,4 +49,4 @@ Feature: Test making Quote through Dimensional Freight Quote
 
     Examples: 
       | location                                                | role | from location type               | from location zip | to location type                 | to location zip | shipper company name | shipper address  | shipper email                 | consignee company name | consignee address | consignee email | count | unit   | contact name | contact number |
-      | TRUE VALUE at 225 S FRONT ST in CENTRAL POINT, OR 97502 | CN   | Commercial with forklift or dock |             64112 | Commercial with forklift or dock |           64114 | yrc freight          | 10990 roe ave,mo | Nica.Marroquin@YRCFreight.com | sprint inc             | 6480 Sprint Pkwy  |                 |     2 | Carton | Nica         |     2320909989 |
+      | TRUE VALUE at 225 S FRONT ST in CENTRAL POINT, OR 97502 | CN   | Commercial with forklift or dock |             64112 | Commercial with forklift or dock |                 | yrc freight          | 10990 roe ave,mo | Nica.Marroquin@YRCFreight.com | sprint inc             | 6480 Sprint Pkwy  |                 |     2 | Carton | Nica         |     2320909989 |

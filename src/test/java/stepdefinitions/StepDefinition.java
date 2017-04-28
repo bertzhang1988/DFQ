@@ -45,6 +45,7 @@ public class StepDefinition extends base {
 	public void login_through_username_and_password_and_navigate_to_DFQ_page(String username, String password)
 			throws Throwable {
 		QE = lp.LoginAndNavigateToDFQ(username, password);
+	
 
 	}
 
@@ -68,7 +69,8 @@ public class StepDefinition extends base {
 	@Then("^enter ship from location type ([^\"]*) and enter zip ([^\"]*)$")
 	public void enter_ship_from_location_type_and_enter_zip(String type, String zip) throws Throwable {
 		QE.selectDropDownBox(QE.ShipFromType, type);
-		QE.ShipFromZip.sendKeys(zip);
+		if (QE.ShipFromZip.isEnabled())
+			QE.ShipFromZip.sendKeys(zip);
 		Thread.sleep(2000);
 	}
 
